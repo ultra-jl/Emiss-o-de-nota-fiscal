@@ -1,42 +1,42 @@
-## Automação de Emissão de Notas Fiscais (RPA)
-Este script foi desenvolvido para automatizar o preenchimento e a emissão de notas fiscais de serviço a partir de uma base de dados em Excel. A solução utiliza Selenium para interagir com o navegador, eliminando o trabalho manual de redigitação de dados.
+Emissão Automática de NF
+Script em Python para automação de preenchimento de notas fiscais de serviço. O robô lê uma base de dados em Excel e utiliza Selenium para inserir os dados em um sistema web, reduzindo o erro humano e o tempo de operação.
 
-Como o script funciona
-O fluxo de execução segue estes passos:
+🚀 Funcionalidades
+Integração com Excel: Leitura automatizada de dados via biblioteca Pandas.
 
-Configuração do Browser: Define o diretório padrão de downloads e ignora prompts de confirmação para agilizar o processo.
+Navegação Web: Automação de login e preenchimento de formulários complexos (Endereço, CNPJ, Itens, Valores).
 
-Autenticação: O robô acede ao ficheiro de login local (ou URL do sistema) e insere as credenciais predefinidas.
+Gestão de Drivers: Uso do webdriver-manager para evitar problemas de versão do ChromeDriver.
 
-Processamento de Dados: Utiliza a biblioteca Pandas para ler a folha de cálculo NotasEmitir.xlsx.
+Loop de Processamento: Emite múltiplas notas em sequência com atualização automática de página (refresh).
 
-Loop de Preenchimento: Para cada linha da tabela, o script localiza os campos de input pelo atributo NAME ou XPATH e insere as informações do cliente e do serviço.
+📦 Pré-requisitos
+Antes de executar, você precisará instalar as dependências necessárias:
 
-Finalização: Após clicar no botão de emissão, a página é atualizada para limpar o formulário e passar para o próximo registo.
+Bash
 
-Requisitos de Sistema
-É necessário ter o Python instalado, juntamente com as seguintes bibliotecas:
+pip install selenium pandas openpyxl webdriver-manager
+🛠️ Configuração e Uso
+Planilha de Dados: Certifique-se de que o arquivo NotasEmitir.xlsx esteja na raiz do projeto com as colunas mapeadas (Cliente, CPF/CNPJ, Valor Total, etc.).
 
-selenium: Para controlo do navegador.
+Caminhos de Arquivo: O script utiliza caminhos absolutos para o diretório de downloads. Caso necessário, altere a variável prefs no bloco de configuração do Chrome.
 
-pandas: Para manipulação da base de dados.
+Execução:
 
-openpyxl: Para suporte à leitura de ficheiros .xlsx.
+Abra o arquivo EmissaoNF.ipynb no Jupyter ou VS Code.
 
-webdriver-manager: Para gestão automática do driver do Chrome.
+Execute as células em ordem.
 
-Estrutura da Planilha (NotasEmitir.xlsx)
-O script espera que o ficheiro Excel contenha exatamente estas colunas (conforme mapeado no código):
+📝 Estrutura do Código
+Bloco 1: Configurações do Webdriver e diretórios de download.
 
-Identificação: Cliente, CPF/CNPJ, Inscrição Estadual.
+Bloco 2 e 3: Rotina de login no sistema.
 
-Localização: CEP, Endereço, Bairro, Município, UF.
+Bloco 4: Carregamento da base de dados via Pandas.
 
-Serviço: Descrição, Quantidade, Valor Unitário, Valor Total.
+Bloco 5: Loop principal que percorre a planilha e preenche os campos do formulário via seletores (Name/XPath).
 
-Notas Técnicas
-Atenção aos Caminhos: O código atual contém caminhos absolutos (ex: C:\Users\joaol\downloads). Antes de correr o script num novo ambiente, certifique-se de atualizar as variáveis de diretório no primeiro bloco de código.
+⚠️ Notas
+O script foi desenvolvido utilizando seletores específicos para um arquivo login.html local. Se for utilizar em um portal oficial, os XPaths e Nomes de elementos devem ser atualizados.
 
-Versão do Chrome: O webdriver-manager tenta baixar a versão compatível com o seu browser automaticamente, mas recomenda-se manter o Chrome atualizado.
-
-Segurança: As credenciais de login estão escritas diretamente no código. Para uso em produção, recomenda-se o uso de variáveis de ambiente ou ficheiros .env.
+Mantenha o seu Google Chrome atualizado para garantir a compatibilidade com o driver.
