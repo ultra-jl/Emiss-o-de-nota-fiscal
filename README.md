@@ -18,7 +18,11 @@ Automação em Python para preenchimento de **Notas Fiscais de Serviço (NFS-e)*
 Certifique-se de ter instalado o Python 3 e as bibliotecas abaixo:
 
 ```bash
-pip install selenium pandas openpyxl webdriver-manager
+ pip install webdriver-manager
+ pip install selenium 
+ pip install pandas
+ pip install openpyxl webdriver-manager
+```
 🛠️ Configuração e Uso
 
 Planilha de Dados
@@ -49,4 +53,3 @@ Bloco 5: Loop principal que percorre a planilha e preenche os campos do formulá
 O script foi desenvolvido usando seletores específicos para um arquivo login.html local. Para uso em portais oficiais, atualize os XPaths e Nomes de elementos.
 
 Mantenha o Google Chrome atualizado para garantir compatibilidade com o driver.
-
