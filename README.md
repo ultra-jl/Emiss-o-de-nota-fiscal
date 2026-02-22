@@ -1,4 +1,4 @@
-Automação de Emissão de Notas Fiscais (RPA)
+## Automação de Emissão de Notas Fiscais (RPA)
 Este script foi desenvolvido para automatizar o preenchimento e a emissão de notas fiscais de serviço a partir de uma base de dados em Excel. A solução utiliza Selenium para interagir com o navegador, eliminando o trabalho manual de redigitação de dados.
 
 Como o script funciona
